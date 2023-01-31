@@ -1,0 +1,38 @@
+import React ,{ useState, useEffect } from "react";
+import svg from "../star-regular.svg"
+const Main = () => {
+  useEffect(() => {
+    //   https://api.escuelajs.co/api/v1/products/
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => setCard(data));
+  },[]); 
+  const [card , setCard] = useState([])
+
+  return(
+    <div className=" d-flex justify-content-center flex-wrap gap-3">
+        {card.map((item)=>{ 
+            return (
+              <div key={item.id} className="card w-25 p-2 ">
+                <img src={item.image} alt="image" height={350} />
+                <h5 className="mt-2">{item.title}</h5>
+                <div className="stars d-flex justify-content-center mt-2 mb-2 gap-1">
+                  <img src={svg} alt="star" width={20} height={20} />
+                  <img src={svg} alt="star" width={20} height={20} />
+                  <img src={svg} alt="star" width={20} height={20} />
+                  <img src={svg} alt="star" width={20} height={20} />
+                  <img src={svg} alt="star" width={20} height={20} />
+                  <h6 className="text-danger ms-3">
+                    <del> {item.price - 5}$ </del>
+                  </h6>
+                </div>
+
+                <h6 className="text-primary">{item.price}$</h6>
+                <button className="btn my-auto bg-primary text-warning">Buy Now</button>
+              </div>
+            );
+        })}
+    </div>
+  )
+};
+export default Main;
