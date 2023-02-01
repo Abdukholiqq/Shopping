@@ -13,10 +13,12 @@ const Main = () => {
     <div className=" d-flex justify-content-center flex-wrap gap-3">
         {card.map((item)=>{ 
             return (
-              <div key={item.id} className="card w-25 p-2 ">
+              <div
+                key={item.id}
+                className="card w-25 p-2  d-flex justify-content-between flex-column">
                 <img src={item.image} alt="image" height={350} />
                 <h5 className="mt-2">{item.title}</h5>
-                <div className="stars d-flex justify-content-center mt-2 mb-2 gap-1">
+                <div className="stars d-flex justify-content-center mt-2 mb-2 gap-1 ">
                   <img src={svg} alt="star" width={20} height={20} />
                   <img src={svg} alt="star" width={20} height={20} />
                   <img src={svg} alt="star" width={20} height={20} />
@@ -28,7 +30,9 @@ const Main = () => {
                 </div>
 
                 <h6 className="text-primary">{item.price}$</h6>
-                <button className="btn my-auto bg-primary text-warning">Buy Now</button>
+                <button className="btn  bg-primary text-warning">
+                  Buy Now
+                </button>
               </div>
             );
         })}

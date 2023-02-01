@@ -5,14 +5,14 @@ import Header from "./Components/Header";
 import Hero from "./Components/Hero";
 import Main from "./Components/Main";
 import Article from "./Components/Article";
-import Footer from "./Components/Footer";
+import Footer from "./Components/Footer"; 
 
 
 
 function App() {
   return (
-    <div className="App container">
-      <Header></Header>
+    <div className="App">
+      <Header></Header> 
       <Hero></Hero>
       <Main></Main>
       <Article></Article>
