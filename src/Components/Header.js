@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
-import logoo from "../logoo.jpg"
 const Header = () => {
   return (
     <div className=" container d-flex justify-content-between  align-items-center pt-2">
       <img
-        width="88"
-        height="54"
-        src={logoo}
+        width="100"
+        height="44"
+        src="https://asaxiy.uz/custom-assets/images/logos/asaxiy-logo.svg"
         alt="logo"
       />
       <div className="w-50 d-flex justify-content-between bg-primary border rounded-3">
@@ -29,9 +28,7 @@ const Header = () => {
         </label>
       </div>
       <div className="d-flex justify-content-between  gap-3">
-        <a
-          className="d-flex flex-column align-items-center  gap-1"
-          href="">
+        <a className="d-flex flex-column align-items-center  gap-1" href="">
           <img
             width="25"
             height="24"
@@ -41,9 +38,7 @@ const Header = () => {
           <span>To'lov</span>
         </a>
 
-        <a
-          className="d-flex flex-column align-items-center gap-1"
-          href="">
+        <a className="d-flex flex-column align-items-center gap-1" href="">
           <img
             width="25"
             height="24"
@@ -53,9 +48,7 @@ const Header = () => {
           <span>Trek</span>
         </a>
 
-        <a
-          className="d-flex flex-column align-items-center gap-1"
-          href="">
+        <a className="d-flex flex-column align-items-center gap-1" href="">
           <img
             width="25"
             height="24"
@@ -68,9 +61,7 @@ const Header = () => {
           </select>
         </a>
 
-        <a
-          className="d-flex flex-column align-items-center gap-1"
-          href="">
+        <a className="d-flex flex-column align-items-center gap-1" href="">
           <img
             width="25"
             height="24"
@@ -80,9 +71,7 @@ const Header = () => {
           <span>Savatcha</span>
         </a>
 
-        <a
-          className="d-flex flex-column align-items-center gap-1"
-          href="">
+        <a className="d-flex flex-column align-items-center gap-1" href="">
           <img
             width="25"
             height="24"
@@ -92,9 +81,7 @@ const Header = () => {
           <span>Sevimlilar</span>
         </a>
 
-        <a
-          className="d-flex flex-column align-items-center gap-1"
-          href="">
+        <a className="d-flex flex-column align-items-center gap-1" href="">
           <img
             width="28"
             height="24"

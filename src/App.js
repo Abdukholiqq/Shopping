@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <Header></Header> 
-      <Hero></Hero>
+      {/* <Hero></Hero> */}
       <Main></Main>
       <Article></Article>
       <Footer></Footer>
