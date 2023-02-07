@@ -1,22 +1,28 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <div className=" container d-flex justify-content-between  align-items-center pt-2">
+      <Link to={"/"}>
       <img
         width="100"
-        height="44"
+        height="35"
         src="https://asaxiy.uz/custom-assets/images/logos/asaxiy-logo.svg"
         alt="logo"
-      />
-      <div className="w-50 d-flex justify-content-between bg-primary border rounded-3">
+        />
+        </Link>
+      <div className="w-50  d-flex   bg-primary border  rounded-4">
         <input
-          className="bg-white p-2 w-75 border-0 border-primary rounded-3"
+          className="bg-white p-2 w-75 border border-primary rounded-4"
           type="search"
           name="search"
           id="search"
           placeholder="Search ..."
         />
-        <label htmlFor="search" className=" me-4 p-2  text-light ">
+        <label
+          htmlFor="search"
+          className=" d-flex justify-content-center gap-2 ps-3  pt-2  text-light ">
           <img
             width="24"
             height="24"
@@ -28,7 +34,8 @@ const Header = () => {
         </label>
       </div>
       <div className="d-flex justify-content-between  gap-3">
-        <a className="d-flex flex-column align-items-center  gap-1" href="">
+          <Link to={"/main"}>
+        <div className="d-flex flex-column align-items-center  gap-1">
           <img
             width="25"
             height="24"
@@ -36,60 +43,66 @@ const Header = () => {
             alt="To'lov"
           />
           <span>To'lov</span>
-        </a>
-
-        <a className="d-flex flex-column align-items-center gap-1" href="">
+        </div>
+          </Link>
+          <Link to={"/hero"}>
+        <div className="d-flex flex-column align-items-center gap-1">
           <img
             width="25"
             height="24"
             src="https://asaxiy.uz/custom-assets/images/icons/header/tracker.svg"
             alt="Trek"
-          />
+            />
           <span>Trek</span>
-        </a>
-
-        <a className="d-flex flex-column align-items-center gap-1" href="">
+        </div>
+            </Link>
+          
+        <div className="d-flex flex-column align-items-center gap-1">
           <img
             width="25"
             height="24"
             src="https://asaxiy.uz/custom-assets/images/icons/header/language.svg"
             alt="language"
-          />
-          <select name="select" id="select">
-            <option value="Uzb">Uzb</option>
+            />
+          <select  name="select" id="select">
+            <option value="Uzb">Uz</option>
             <option value="Ru">Ru</option>
           </select>
-        </a>
-
-        <a className="d-flex flex-column align-items-center gap-1" href="">
+        </div>
+             
+          <Link to={"/home"}>
+        <div className="d-flex flex-column align-items-center gap-1">
           <img
             width="25"
             height="24"
             src="https://asaxiy.uz/custom-assets/images/icons/header/cart.svg"
             alt="Savatcha"
-          />
+            />
           <span>Savatcha</span>
-        </a>
-
-        <a className="d-flex flex-column align-items-center gap-1" href="">
+        </div>
+            </Link>
+          <Link to={"/main"}>
+        <div className="d-flex flex-column align-items-center gap-1">
           <img
             width="25"
             height="24"
             src="https://asaxiy.uz/custom-assets/images/icons/header/heart.svg"
             alt="Sevimlilar"
-          />
+            />
           <span>Sevimlilar</span>
-        </a>
-
-        <a className="d-flex flex-column align-items-center gap-1" href="">
+        </div>
+            </Link>
+          <Link to={"/admin"}>
+        <div className="d-flex flex-column align-items-center gap-1">
           <img
             width="28"
             height="24"
             src="https://asaxiy.uz/custom-assets/images/icons/header/avatar.svg"
             alt="Kabinet"
-          />
+            />
           <span>Kabinet</span>
-        </a>
+        </div>
+            </Link>
       </div>
     </div>
   );
