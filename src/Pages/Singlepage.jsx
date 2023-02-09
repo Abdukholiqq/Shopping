@@ -28,7 +28,7 @@ export default function Singlepage() {
           <h4>
             <Stars />
           </h4>
-          {/* <h4>Comment {json.rating.count}</h4> */}
+          <h4>Comment {json.rating?.count}</h4>
           <del className="text-danger"> {Math.ceil(json.price + 6)}.9$ </del>
           <h4> {json.price} $</h4>
           <h6 className="text-secondary">
