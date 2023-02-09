@@ -5,10 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-// import "swiper/css/navigation";
 
 import "./SwiperStyles.css";
-// import "./styles.css";
 
 // import required modules
 import { Autoplay, Pagination } from "swiper";
@@ -111,3 +109,211 @@ function Swiperr() {
   );
 }
 export default Swiperr;
+
+//   second swipper
+export const SwiperSlider = () => {
+  return (
+    <div className="companys container my-5 border-0 rounded-4 shadow px-2">
+      <Swiper
+        slidesPerView={5}
+        spaceBetween={30}
+        loop={true}
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay]}
+        className="mySwiper">
+        <SwiperSlide>
+          <div className="p-5">
+            <img
+              src="https://assets.asaxiy.uz/brand/webp//5e15c63e06b95.webp"
+              alt="image"
+              height={40}
+              width={40}
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
+              height={40}
+              width={40}
+              src="	https://assets.asaxiy.uz/brand/webp//5e15c561deadb.webp"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
+              height={40}
+              width={40}
+              src="https://assets.asaxiy.uz/brand/webp//6014ffc121fc1.webp"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
+              height={20}
+              width={40}
+              src="	https://assets.asaxiy.uz/brand/webp//6064cdf0ce901.webp"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
+              height={40}
+              width={40}
+              src="	https://assets.asaxiy.uz/brand/webp//5e15c4697e437.webp"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
+              height={40}
+              width={40}
+              src="https://assets.asaxiy.uz/brand/webp//5e15c51449bd0.webp"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
+              height={40}
+              width={40}
+              src="https://assets.asaxiy.uz/brand/webp//5ff6f8872a0db.webp"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
+              height={40}
+              width={40}
+              src="	https://assets.asaxiy.uz/brand/webp//6103c3977d54d.webp"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
+              height={40}
+              width={40}
+              src="https://assets.asaxiy.uz/brand/webp//6014fbfea491a.webp"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
+              height={40}
+              width={40}
+              src="	https://assets.asaxiy.uz/brand/webp//603481675b122.webp"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
+              height={40}
+              width={40}
+              src="https://assets.asaxiy.uz/brand/webp//605036814c07e.webp"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
+              height={40}
+              width={40}
+              src="https://assets.asaxiy.uz/brand/webp//6067393b94990.webp"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
+              height={40}
+              width={40}
+              src="https://assets.asaxiy.uz/brand//630b04bbdadf4.jpg"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
+              height={40}
+              width={40}
+              src="https://assets.asaxiy.uz/brand//630b0f0ed1e2b.png"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
+              height={40}
+              width={40}
+              src="https://assets.asaxiy.uz/brand//6309b524cec23.png"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className=" p-5">
+            <img
+              height={40}
+              width={40}
+              src="https://assets.asaxiy.uz/brand/webp//5e15c4ec85cf2.webp"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
+              height={40}
+              width={40}
+              src="	https://assets.asaxiy.uz/brand/webp//5e15c5de44b63.webp"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
+              height={40}
+              width={40}
+              src="	https://assets.asaxiy.uz/brand/webp//5e15c615d99f8.webp"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img
+              width={150}
+              src="https://assets.asaxiy.uz/brand//63b65df2b0896.png"
+              alt="image"
+            />
+          </div>
+        </SwiperSlide>
+      </Swiper>
+    </div>
+  );
+};

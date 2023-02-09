@@ -9,9 +9,9 @@ export default function Singlepage() {
   const {productId} = useParams(); 
   const [json, setSingle] = useState([]);
   const [rating, setRating] = useState({});
-  console.log(productId)
+  // console.log(productId)
   useEffect(() => {
-    axios.get(`https://fakestoreapi.com/products/`+productId).then((json) => {
+    axios.get(`https://fakestoreapi.com/products/${productId}`).then((json) => {
         // const list = Object.keys(json.rating).reduce((acc, key) => {
         //   acc[key] = json.rating[key];
         //   return acc;
@@ -22,7 +22,7 @@ export default function Singlepage() {
       });
   }, [productId]); 
   
-console.log(json.id)
+// console.log(json.id)
   return (
     <div className="container text-start">
       <div key={json.id} className="shadow mt-5  d-flex gap-5 p-3">

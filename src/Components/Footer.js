@@ -1,3 +1,7 @@
 import { useState, useEffect } from "react";
-const Footer = () => {};
+const Footer = () => {
+    return (
+        <div></div>
+    )
+};
 export default Footer;

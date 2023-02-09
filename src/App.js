@@ -26,6 +26,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      {/* <Loaderr/> */}
       {/* <Star></Star> */}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -35,7 +36,8 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </div>
+       
+        </div>
   );
 }
 
