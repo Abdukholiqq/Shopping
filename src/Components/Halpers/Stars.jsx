@@ -1,5 +1,5 @@
 import React  from 'react'
- import svg from "../../star-regular.svg"
+ import svg from "../../assets/images/star-regular.svg"
  const Stars = () => {
     return (
       <div>

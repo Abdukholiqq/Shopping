@@ -20,19 +20,19 @@ input {
   border-radius: 10px;
   border: 1px solid green;
 }
-li {
+.li {
   padding: 2px 10px;
   font-size: 18px;
   list-style: none;
   border-radius: 18px 5px; 
 }
-li:hover {
+.li:hover {
   cursor: pointer;
   /* background-color: rgb(0, 255, 34); */
   color: white !important;
   background-color: rgb(3, 27, 240);
 }
-li:active{
+.li:active{
   background-color: black;
   color: greenyellow !important;
 }

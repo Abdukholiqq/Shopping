@@ -37,7 +37,7 @@ function Swiperr() {
         className="mySwiper">
         <SwiperSlide>
           <img
-            src="https://images.uzum.uz/cfb4jool08k0o9qimhbg/main_page_banner.jpg"
+            src="https://nike-online.uz/images/thumbs/0016256_SALE%2022%2070%20%D0%91%D0%90%D0%9D%D0%9D%D0%95%D0%A0%20(2).jpeg"
             alt="banner"
             height={350}
           />
@@ -51,53 +51,12 @@ function Swiperr() {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://images.uzum.uz/cfb4jool08k0o9qimhbg/main_page_banner.jpg"
+            src="https://nike-online.uz/images/thumbs/0010451_%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D1%8B%D0%B9%20%D0%B1%D0%B0%D0%BD%D0%BD%D0%B5%D1%80%20zp%20nike%202.jpeg"
             alt="banner"
             height={350}
           />
         </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://images.uzum.uz/cfb4jool08k0o9qimhbg/main_page_banner.jpg"
-            alt="banner"
-            height={350}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://images.uzum.uz/cfb4jool08k0o9qimhbg/main_page_banner.jpg"
-            alt="banner"
-            height={350}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://images.uzum.uz/cfb4jool08k0o9qimhbg/main_page_banner.jpg"
-            alt="banner"
-            height={350}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://images.uzum.uz/cfb4jool08k0o9qimhbg/main_page_banner.jpg"
-            alt="banner"
-            height={350}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://images.uzum.uz/cfb4jool08k0o9qimhbg/main_page_banner.jpg"
-            alt="banner"
-            height={350}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://images.uzum.uz/cfb4jool08k0o9qimhbg/main_page_banner.jpg"
-            alt="banner"
-            height={350}
-          />
-        </SwiperSlide>
+
         <div className="autoplay-progress" slot="container-end">
           <svg viewBox="0 0 48 48" ref={progressCircle}>
             <circle cx="24" cy="24" r="20"></circle>

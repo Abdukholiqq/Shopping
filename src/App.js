@@ -1,15 +1,4 @@
-// import logo from "./logo.svg";
-import "./App.css";
-import Header from "./Components/Header";
-import Admin from "./Pages/Admin";
-import Hero from "./Components/Hero";
-import Main from "./Components/Main";
-import Article from "./Components/Article";
-import Footer from "./Components/Footer";
-
-// import Swiperr from "./Components/Halpers/Swiper";
-import NotFound from "./Pages/NotFound";
-import Loaderr from "./Components/Halpers/Loaderr";
+import { createContext, useState } from "react";
 import {
   BrowserRouter,
   createBrowserRouter,
@@ -18,26 +7,37 @@ import {
   RouterProvider,
   Routes,
 } from "react-router-dom";
-import Singlepage from "./Pages/Singlepage";
-import Home from "./Pages/MainPages";
 
-// import Star from "../Components/Halpers/Stars";
+import "./App.css";
+import Home from "./Pages/MainPages";
+import Header from "./Components/Header";
+import Admin from "./Pages/Admin";   
+import Singlepage from "./Pages/Singlepage";
+import Footer from "./Components/Footer";
+
+import NotFound from "./Pages/NotFound";  
+import AuthContextProvider from "./Context/AuthContext";
+
+export const languageContext = createContext("Uz");
+
 function App() {
+  const [lang, setLang] = useState("Uz");
   return (
-    <div className="App">
-      <Header />
-      {/* <Loaderr/> */}
-      {/* <Star></Star> */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/hero" element={<Hero />} />
-        {/* <Route path="/main" element={<Main />} /> */}
-        <Route path="/products/:name" element={<Singlepage />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-       
+    <languageContext.Provider value={lang}>
+      <AuthContextProvider>
+        <div className="App">
+          <Header lang={lang} setLang={setLang} />
+          <Routes>
+            <Route path="/" element={<Home lang={lang} setLang={setLang} />} />
+            <Route path="/products/:name" element={<Singlepage />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+ 
+          <Footer lang={lang} setLang={setLang} />
         </div>
+      </AuthContextProvider>
+    </languageContext.Provider>
   );
 }
 

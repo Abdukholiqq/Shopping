@@ -1,11 +1,11 @@
-import React from "react";
-import Hero from "../Components/Hero";
+import React, { useState } from "react";
+// import Hero from "../Components/Hero";
 import Main from "../Components/Main";
 import { SwiperSlider } from "../Components/Halpers/Swiper";
 export default function Home() {
+  const [lang, setLang] = useState("Uz");
   return (
-    <div>
-      <Hero />
+    <div> 
       <Main />
       <SwiperSlider/>
     </div>

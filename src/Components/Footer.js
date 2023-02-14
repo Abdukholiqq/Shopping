@@ -1,7 +1,27 @@
 import { useState, useEffect } from "react";
-const Footer = () => {
+const Footer = ({lang , setLang}) => {
     return (
-        <div></div>
-    )
+      <div>
+         
+          {lang === "Uz" ? (
+            <div>
+                
+            </div>
+          ) : lang === "Ru" ? (
+            <div>
+
+            </div>
+          ) : lang === "En" ? (
+            <div>
+
+            </div>
+          ) : (
+            <div>
+
+            </div>
+          )}
+       
+      </div>
+    );
 };
 export default Footer;

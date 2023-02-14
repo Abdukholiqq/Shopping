@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { languageContext } from "../../App";
 import Swiperr from "./Swiper";
 
 const Category = ({ setCard }) => {
@@ -23,18 +24,23 @@ const Category = ({ setCard }) => {
       .then((res) => res.json())
       .then((json) => setCard(json));
   };
-
+  const lang = useContext(languageContext) 
   return (
-    <div>
-      <hr />
+    <div> 
       <ul className="d-flex justify-content-evenly   pt-2 mt-2 gap-5">
-        <li onClick={() => categoryHandler("all")} className="text-primary">
-          Barcha Mahsulotlar
+        <li onClick={() => categoryHandler("all")} className="text-primary li"> 
+          {lang === "Uz"
+            ? "Barcha Mahsulotlar"
+            : lang === "Ru"
+            ? "Bce продукты"
+            : lang === "En"
+            ? "Products"
+            : "Barcha Mahsulotlar"}
         </li>
         {categories.map((category, i) => (
           <li
             onClick={() => categoryHandler(category)}
-            className="text-primary"
+            className="text-primary li" 
             key={i}>
             {category}
           </li>
