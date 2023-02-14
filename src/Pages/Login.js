@@ -47,7 +47,6 @@ function Login() {
         rtl={false}
         theme="light"
       />
-
       <form required className="w-25 p-2 border">
         {/* <!-- Email input --> */}
         <div required className="form-outline mb-4">
@@ -124,9 +123,17 @@ function Login() {
           className="btn w-25 btn-primary btn-block mb-4">
           Sign in
         </button>
+        <hr />
+        <br />
 
-        {/* <!-- Register buttons --> */}
+        <div>
+          Vaqtinchalik foydalanish uchun ! <br /> Email: eve.holt@reqres.in{" "}
+          <br />
+          Password: cityslicka
+        </div>
       </form>
+
+      {/* <!-- Register buttons --> */}
     </div>
   );
 }
