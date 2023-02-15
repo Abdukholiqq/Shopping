@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-// import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react"; 
 import Category from "../Components/Halpers/Category"; 
 import Stars from "../Components/Halpers/Stars";
 import EventsLoader from "../Components/Halpers/Loaderr";
@@ -62,8 +61,7 @@ const Admin = () => {
                       //   const getCard = async ()=> { const datta = await axios.delete(
                       //     `https://fakestoreapi.com/products/${item.id}`
                       //   );
-                      //  setCard(datta.data)
-                      //  console.log(datta.data)
+                      //  setCard(datta.data) 
                       //      }
                       //      getCard()
                       // //     const getCard = async () => {
@@ -75,8 +73,7 @@ const Admin = () => {
                       // //       )
                       // //         .then((res) => res.json())
                       // //         .then((dat) => {
-                      // //           setCard(dat);
-                      // //           console.log(dat);
+                      // //           setCard(dat); 
                       // //         });
                       // //     };
                       // }}

@@ -33,8 +33,7 @@
 //   });
  
 
-//   const onChangehandler = (e) => {
-//     console.log("xb");
+//   const onChangehandler = (e) => { 
 //     setState({ ...state, [e.target.name]: e.target.value });
 //   };
 

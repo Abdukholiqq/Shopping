@@ -2,7 +2,7 @@ import React, { useMemo, useState, useEffect } from "react";
 import Category from "./Halpers/Category";
 
 // // import { useMemo } from "react";
-// import Pagination from "./Pagination";
+import Pagination from "./Pagination";
 // let PageSize = 10
 // const [currentPage, setCurrentPage] = useState(1);
 
@@ -18,32 +18,33 @@ import hard from "../assets/images/hard.svg";
 
 import { json, Link, useNavigate, useParams } from "react-router-dom";
 import Stars from "./Halpers/Stars";
-import { usePagination } from "../Hooks/usePagination";
+import { usePagination } from "./usePagination";
 import EventsLoader from "./Halpers/Loaderr";
- 
 
 const Main = () => {
-  // const [currentPage, setCurrentPage] = useState(1); 
-  // let PageSize = 10;
+   const [card, setCard] = useState([]);
+   const [rating, setRating] = useState({});
+   const [paramm, setParam] = useState();
+   const { productId } = useParams();
+   const navigate = useNavigate();
+   const [loading, setLoading] = useState(false);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  let PageSize = 4;
   // // pagination
-  // const currentTableData = useMemo(() => {
-  //   const firstPageIndex = (currentPage - 1) * PageSize;
-  //   const lastPageIndex = firstPageIndex + PageSize;
-  //   return card.slice(firstPageIndex, lastPageIndex);
-  // }, [currentPage]);
+  const currentTableData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    return card.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, card]);
 
   //  pagination
-  const [card, setCard] = useState([]);
-  const [rating, setRating] = useState({});
-  const [paramm, setParam] = useState();
-  const { productId } = useParams();
-   const navigate = useNavigate();
-  const [loading , setLoading] = useState(false)
+ 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
-      .then((data) =>{
+      .then((data) => {
         //  {
         //    const list = Object.keys(data.rating).reduce((acc, key) => {
         //     acc[key] = data.rating[key];
@@ -52,30 +53,35 @@ const Main = () => {
         //   setCard(data)
         //    setRating(list)
         // }
-        setLoading(false)
-        setCard(data)}
-      );
-  }, []); 
+        setLoading(false);
+        setCard(data);
+      });
+  }, []);
   if (loading) {
     return (
-    <div className="d-flex container flex-wrap">
-      <EventsLoader />
-      <EventsLoader />
-      <EventsLoader />
-      <EventsLoader />
-      <EventsLoader />
-      <EventsLoader />
-    </div>)
+      <div className="d-flex container flex-wrap">
+        <EventsLoader />
+        <EventsLoader />
+        <EventsLoader />
+        <EventsLoader />
+        <EventsLoader />
+        <EventsLoader />
+      </div>
+    );
   }
-  // <Pagination />;
+  <Pagination
+    className="pagination-bar"
+    currentPage={currentPage}
+    totalCount={card.length}
+    pageSize={PageSize}
+    onPageChange={(page) => setCurrentPage(page)}
+  />;
   return (
-    <div>
-       
-        <Category setCard={setCard} />
+    <div className="container">
+      <Category setCard={setCard} />
       <div className="d-flex justify-content-around container flex-wrap gap-2 ">
-        {card.map((item) => {
-          //  const url = item.title.replace(/\s+/g, "-");
-          // console.log(item.id)
+        {currentTableData.map((item) => {
+          //  const url = item.title.replace(/\s+/g, "-"); 
           //  setParam(item.id)
           return (
             <div
@@ -113,25 +119,16 @@ const Main = () => {
             </div>
           );
         })}
-        {/* {currentTableData.map((item) => {
-          return (
-            <tr>
-              <td>{item.id}</td>
-              <td>{item.first_name}</td>
-              <td>{item.last_name}</td>
-              <td>{item.email}</td>
-              <td>{item.phone}</td>
-            </tr>
-          );
-        })}
-        <Pagination
-          className="pagination-bar"
-          currentPage={currentPage}
-          totalCount={card.length}
-          pageSize={PageSize}
-          onPageChange={(page) => setCurrentPage(page)}
-        /> */}
+        <div>
+        </div>
       </div>
+          <Pagination
+            className="pagination-bar"
+            currentPage={currentPage}
+            totalCount={card.length}
+            pageSize={PageSize}
+            onPageChange={(page) => setCurrentPage(page)}
+          />
     </div>
   );
 };

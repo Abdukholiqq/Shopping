@@ -7,7 +7,8 @@ const range = (start, end) => {
   */
   return Array.from({ length }, (_, idx) => idx + start);
 };
-export const DOTS = 3
+
+export const DOTS = ''
 export const usePagination = ({
   totalCount,
   pageSize,
