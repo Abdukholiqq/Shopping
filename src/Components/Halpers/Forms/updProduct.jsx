@@ -2,10 +2,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
-import { URL } from "../../App";
-import UseInput from "./Input";
+import { URL } from "../../../App";
+import UseInput from "../Input";
 import axios from "axios";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
 const Input = styled.input`
   height: 78px;
   width: 400px;
@@ -21,8 +22,19 @@ const Input = styled.input`
   }
 `;
 
-const Form = () => {
-  const access_token = localStorage.getItem("token");
+const UpdateProduct = () => {
+  const id = useParams();
+  const [selectedFiles, setSelectedFiles] = useState("");
+  //   const [datas, setData] = useState({});
+  // const [selectedFile, setSelectedFile] = useState("");
+  // const getdata = async () => {
+  //     const data = await axios.get(URL + `api/products/${id.id}`).then((res)=>{
+  //         console.log(res.data.data[0]);
+  //         setData(res.data.data[0])
+  //     });
+
+  //   };
+  // //   getdata()
   const obj = {
     productName: "",
     model: "",
@@ -49,17 +61,21 @@ const Form = () => {
     description: "",
   };
   const { value, changeValue } = UseInput(obj);
-  const [selectedFiles, setSelectedFiles] = useState("");
 
   const handleFileChange = (event) => {
     const files = event.target.files;
     setSelectedFiles(files);
+    // const file = event.target.mainFile;
+    // setSelectedFile(file);
   };
   const submit = () => {
     const files = new FormData();
+    // for multiple file
+    // files.append("file", selectedFile);
     for (let i = 0; i < selectedFiles.length; i++) {
       files.append("files", selectedFiles[i]);
     }
+    // for one file
     // for all input
     files.append("productName", value.productName);
     files.append("model", value.model);
@@ -84,12 +100,10 @@ const Form = () => {
     files.append("doimiy_xotira", value.doimiy_xotira);
     files.append("operativ_xotira", value.operativ_xotira);
     files.append("description", value.description);
-
     axios
-      .post(`${URL}api/products`, files, {
+      .patch(`${URL}api/products/${id.id}`,files, {
         headers: {
           "content-type": "multipart/form-data",
-          Authorization: `Bearer ${access_token}`,
         },
       })
       .then(function (response) {
@@ -99,7 +113,8 @@ const Form = () => {
         console.log(error);
         return error;
       });
-    alert("mahsulot qo'shildi");
+      alert("mahsulot ma'lumotlari yangilandi");
+    //   bu yerda form ichiga ma'lumot chiqarish uchun code yozildi
   };
   return (
     <div className="container">
@@ -108,7 +123,7 @@ const Form = () => {
         required
         className="postForm container d-flex flex-wrap w-75 justify-content-between p-2"
       >
-        <h3>You can add a new product here</h3>
+        <h3>You can update a find product here</h3>
         <div className="d-flex flex-wrap justify-content-between p-2">
           <Input
             type="text"
@@ -118,10 +133,10 @@ const Form = () => {
           />
           <Input
             type="text"
-            placeholder="Product name"
+            placeholder="product name"
             name="productName"
             onChange={changeValue}
-            id="ProductName"
+            id="productName"
           />
           <Input
             type="number"
@@ -244,6 +259,17 @@ const Form = () => {
             name="ekran_size"
             onChange={changeValue}
           />
+          {/* <div className="d-flex flex-column">
+            <label htmlFor="file" className="text-start ps-2">
+              Select Main Images
+            </label>
+            <Input
+              type="file"
+              onChange={handleFileChange}
+              name="mainFile"
+              id="file"
+            />
+          </div> */}
           <Input
             type="text"
             placeholder="Mahsulot tavsifi"
@@ -267,11 +293,11 @@ const Form = () => {
       </form>
       <button
         onClick={(e) => submit()}
-        className="btn bg-primary mb-5 text-white"
+        className="btn bg-primary mb-5 text-white w-75"
       >
-        Add new product
+        Update product
       </button>
     </div>
   );
 };
-export default Form;
+export default UpdateProduct;

@@ -1,13 +1,17 @@
-// import { useState, useEffect } from "react";
+/* eslint-disable no-unused-vars */ 
 
-// const Input = ({ type, name, placeholder, onChangehandler, value }) => {
-//     return(
-//     <input type={type}
-//     name={name}
-//     placeholder={placeholder}
-//     onChangehandler={onChangehandler}
-//     value={value}
-//     />
-//     );
-// };
-// export default Input;
+ import React from "react";
+
+const UseInput = (inputs) => {
+  const [value, setValue] = React.useState(inputs);
+  return {
+    value,
+    changeValue: (e) =>
+      setValue({
+        ...value,
+        [e.target.name]: e.target.value,
+      }),
+  };
+};
+
+export default UseInput;

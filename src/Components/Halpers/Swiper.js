@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -37,7 +39,7 @@ function Swiperr() {
         className="mySwiper">
         <SwiperSlide>
           <img
-            src="https://nike-online.uz/images/thumbs/0016256_SALE%2022%2070%20%D0%91%D0%90%D0%9D%D0%9D%D0%95%D0%A0%20(2).jpeg"
+          src="https://olcha.uz/image/original/sliders/ru/kTgfCoZMO9Q8MtNWqMgm4y4Z08UY21NQynUjxvXg9lAh8o7T0Fj042tJ8ki2.png"
             alt="banner"
             height={350}
           />
@@ -51,8 +53,8 @@ function Swiperr() {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://nike-online.uz/images/thumbs/0010451_%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D1%8B%D0%B9%20%D0%B1%D0%B0%D0%BD%D0%BD%D0%B5%D1%80%20zp%20nike%202.jpeg"
-            alt="banner"
+          src="https://olcha.uz/image/original/sliders/ru/HIzHqvj0r6Nto67NidiQ4k3PVoct4UwTBbnXusNRSaf6mrX1PB7V4SQ3doUs.png"
+              alt="banner"
             height={350}
           />
         </SwiperSlide>

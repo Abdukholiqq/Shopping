@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-// import Hero from "../Components/Hero";
+/* eslint-disable no-unused-vars */
+import React from "react"; 
 import Main from "../Components/Main";
 import { SwiperSlider } from "../Components/Halpers/Swiper";
-export default function Home() {
-  const [lang, setLang] = useState("Uz");
+export default function Home() { 
   return (
     <div> 
       <Main />
