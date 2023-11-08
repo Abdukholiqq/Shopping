@@ -6,13 +6,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import Category from "../Components/Halpers/Category";
 import Stars from "../Components/Halpers/Stars";
-import EventsLoader from "../Components/Halpers/Loaderr";
-import Login from "./Register";
+import EventsLoader from "../Components/Halpers/Loaderr";  
 import { AuthContext } from "../Context/AuthContext";
 import axios from "axios"; 
 import { useNavigate } from "react-router-dom";
 const URL = "http://localhost:4000/";
 import AddBrand from "../Components/Halpers/Forms/addCategory";
+import AdminLogin from "./adminLogin";
 
 const Admin = () => {
   const { user } = useContext(AuthContext);
@@ -135,7 +135,7 @@ const Admin = () => {
           </div>
         </div>
       ) : (
-        <Login />
+        <AdminLogin/>
       )}
     </div>
   );

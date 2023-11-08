@@ -28,6 +28,7 @@ import Order from "./Components/Halpers/Forms/order.form";
 import Accaunt from "./Components/Halpers/Accaunt";
 import AddBrand from "./Components/Halpers/Forms/addCategory";
 import UpdateAdmin from "./Components/Halpers/Forms/updAdmin";
+import AdminLogin from "./Pages/adminLogin";
 
 export const languageContext = createContext("Uz");
 export const URL = "http://localhost:4000/";
@@ -43,6 +44,7 @@ function App() {
             <Route path="/" element={<Home lang={lang} setLang={setLang} />} />
             <Route path="/products/:id" element={<Singlepage />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/users/register" element={<Register/>}/>
             <Route path="/admin/products" element={<Form/>}/>
             <Route path="/admin/settings" element={<UpdateAdmin/>} />

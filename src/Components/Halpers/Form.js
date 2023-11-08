@@ -100,6 +100,7 @@ const Form = () => {
         return error;
       });
     alert("mahsulot qo'shildi");
+    window.location.reload()
   };
   return (
     <div className="container">
@@ -110,12 +111,11 @@ const Form = () => {
       >
         <h3>You can add a new product here</h3>
         <div className="d-flex flex-wrap justify-content-between p-2">
-          <Input
-            type="text"
-            placeholder="Brand name"
-            name="model"
-            onChange={changeValue}
-          />
+           <div className="w-25 btn d-flex flex-column">
+            <label htmlFor="select">Please select Brand name</label>
+          <select name="model" id="select" onChange={changeValue}><option value="samsung">Samsung</option>
+          <option value="iphone">Iphone</option></select>
+           </div>
           <Input
             type="text"
             placeholder="Product name"
