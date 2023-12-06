@@ -24,7 +24,6 @@ const Input = styled.input`
 
 const UpdateProduct = () => {
   const id = useParams();
-  const [selectedFiles, setSelectedFiles] = useState("");
   //   const [datas, setData] = useState({});
   // const [selectedFile, setSelectedFile] = useState("");
   // const getdata = async () => {
@@ -35,6 +34,16 @@ const UpdateProduct = () => {
 
   //   };
   // //   getdata()
+  const [categories, setCategories] = useState([]);
+  const [selectedFilesF, setSelectedFilesF] = useState("");
+  const [selectedFilesB, setSelectedFilesB] = useState("");
+  useEffect(() => {
+    const fn = async () => {
+      const res = await axios.get(URL + `api/category`);
+      setCategories(res.data.data);
+    };
+    fn();
+  }, []);
   const obj = {
     productName: "",
     model: "",
@@ -62,20 +71,18 @@ const UpdateProduct = () => {
   };
   const { value, changeValue } = UseInput(obj);
 
-  const handleFileChange = (event) => {
-    const files = event.target.files;
-    setSelectedFiles(files);
-    // const file = event.target.mainFile;
-    // setSelectedFile(file);
+  const handleFileChangeF = (event) => {
+    const fileFront = event.target.files[0];
+    setSelectedFilesF(fileFront);
+  };
+  const handleFileChangeB = (e) => {
+    const fileBack = e.target.files[0];
+    setSelectedFilesB(fileBack);
   };
   const submit = () => {
     const files = new FormData();
-    // for multiple file
-    // files.append("file", selectedFile);
-    for (let i = 0; i < selectedFiles.length; i++) {
-      files.append("files", selectedFiles[i]);
-    }
-    // for one file
+    files.append("fileFront", selectedFilesF);
+    files.append("fileBack", selectedFilesB);
     // for all input
     files.append("productName", value.productName);
     files.append("model", value.model);
@@ -101,7 +108,7 @@ const UpdateProduct = () => {
     files.append("operativ_xotira", value.operativ_xotira);
     files.append("description", value.description);
     axios
-      .patch(`${URL}api/products/${id.id}`,files, {
+      .patch(`${URL}api/products/${id.id}`, files, {
         headers: {
           "content-type": "multipart/form-data",
         },
@@ -113,7 +120,7 @@ const UpdateProduct = () => {
         console.log(error);
         return error;
       });
-      alert("mahsulot ma'lumotlari yangilandi");
+    alert("mahsulot ma'lumotlari yangilandi");
     //   bu yerda form ichiga ma'lumot chiqarish uchun code yozildi
   };
   return (
@@ -125,12 +132,18 @@ const UpdateProduct = () => {
       >
         <h3>You can update a find product here</h3>
         <div className="d-flex flex-wrap justify-content-between p-2">
-          <Input
-            type="text"
-            placeholder="Brand name"
-            name="model"
-            onChange={changeValue}
-          />
+          <div className="w-25 btn d-flex flex-column">
+            <label htmlFor="select">Please select Brand name</label>
+            <select name="model" id="select" onChange={changeValue}>
+              {categories.map((item) => {
+                return (
+                  <option key={item.id} value={item.category_name}>
+                    {item.category_name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
           <Input
             type="text"
             placeholder="product name"
@@ -259,34 +272,32 @@ const UpdateProduct = () => {
             name="ekran_size"
             onChange={changeValue}
           />
-          {/* <div className="d-flex flex-column">
-            <label htmlFor="file" className="text-start ps-2">
-              Select Main Images
-            </label>
-            <Input
-              type="file"
-              onChange={handleFileChange}
-              name="mainFile"
-              id="file"
-            />
-          </div> */}
           <Input
             type="text"
             placeholder="Mahsulot tavsifi"
             name="description"
             onChange={changeValue}
           />
-
           <div className="d-flex flex-column">
             <label htmlFor="files" className="text-start ps-2">
-              Select Addition Images
+              Choose Front of the phone
             </label>
             <Input
               type="file"
-              multiple
-              onChange={handleFileChange}
-              name="files"
+              onChange={handleFileChangeF}
+              name="fileFront"
               id="files"
+            />
+          </div>
+          <div className="d-flex flex-column">
+            <label htmlFor="fileBack" className="text-start ps-2">
+              Choose Back of the phone
+            </label>
+            <Input
+              type="file"
+              onChange={handleFileChangeB}
+              name="fileBack"
+              id="fileBack"
             />
           </div>
         </div>

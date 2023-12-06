@@ -208,7 +208,7 @@ export default function Singlepage() {
         <h2>Shunga o'xshash mahsulotlar</h2>
         <div className="d-flex justify-content-around flex-wrap mb-3">
           <Swiper
-        slidesPerView={3}
+            slidesPerView={3}
             spaceBetween={10}
             centeredSlides={true}
             loop={true}
@@ -216,19 +216,16 @@ export default function Singlepage() {
               delay: 2500,
               disableOnInteraction: false,
             }}
-            pagination={{
-              clickable: true,
-            }}
             navigation={true}
             modules={[Autoplay, Pagination]}
             className="myswiper"
           >
-              {products.map((like) => {
-                return (
-                  <SwiperSlide>
+            {products.map((like) => {
+              return (
+                <SwiperSlide>
                   <div
                     key={like.id}
-                    style={{ width: 310, height:500}}
+                    style={{ width: 310, height: 500 }}
                     className="card p-2 mb-2 d-flex justify-content-between flex-column position-relative text-center"
                   >
                     <img
@@ -237,7 +234,7 @@ export default function Singlepage() {
                       height={360}
                       width={300}
                       className="  rounded-2 p-2"
-                    /> 
+                    />
                     <h5 className="mt-2">{like.productName}</h5>
 
                     <div className="stars d-flex justify-content-center mt-2 mb-2 gap-1 ">
@@ -252,9 +249,9 @@ export default function Singlepage() {
                       Read More
                     </button>
                   </div>
-              </SwiperSlide>
-                );
-              })}
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </div>
       </div>

@@ -16,7 +16,7 @@ const Accaunt = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const [datas, setData] = useState([]);
-  const [product, setProduct]= useState({})
+  const [user, setUser]= useState({}) 
   const unHidden = true;
   //   const navigate = useNavigate();
   const access_token = localStorage.getItem("token");
@@ -24,33 +24,38 @@ const Accaunt = () => {
     const res = await axios.get(`${URL}api/orders`, {
       headers: { Authorization: `Bearer ${access_token}` },
     });
-    console.log(res);
-    setData(res.data.data);
-    setProduct(res.data.data[0].ProductModels)
-  };
-
+    console.log(res.data.data); 
+    setData(res.data.data); 
+    setUser(res.data.data[0].UserModels[0])
+  }; 
   function toggleModal() {
     setIsOpen(!isOpen);
-  }
-
+  } 
   useEffect(() => {
     getData();
   }, []); 
+  // console.log(datas[0].UserModels.avatar, "datas");
   return (
     <div>
     {access_token?(
-    <div className="container d-flex">
-      <div className="w-25 mt-5 p-5 text-start">
+    <div className="container d-flex justify-content-around">
+      <div className="d-flex flex-column gap-2 mt-2 text-start">
+        <div>
+          <img style={{width: 170, height: 170 }} className="border rounded-5 border-5  " src={URL+user.avatar} alt="avatar" />
+        </div> 
+        <div className="d-flex gap-2">
+        <h4>{user.username}</h4>
+        <h4>{user.lastname}</h4>
+        </div>
+        <br />
         <h5 onClick={toggleModal} className="btn bg-primary text-white">
           {" "}
           🚛 Buyurtmalarim{" "}
-        </h5>
-        <br />
+        </h5> 
         <br />
         <button onClick={toggleModal} className="btn bg-success text-white">
           ⚙️ Settings
-        </button>
-        <br /> 
+        </button> 
         <br />
         <button
           className="btn mt-2 text-white bg-danger opacity-75"
@@ -100,9 +105,9 @@ const Accaunt = () => {
                   </div>
                   <div className="d-flex text-start"> 
                   <h6 style={{width:250, marginRight: 20}}>Mahsulot nomi</h6>
-                  {product.map((prod)=>{
+                  {item.ProductModels.map((prod)=>{
                     return (
-                      <div>
+                      <div key={prod.id}>
                         <div>
                           <h5>{prod.productName}</h5>
                           </div>

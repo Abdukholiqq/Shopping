@@ -48,18 +48,29 @@ const Form = () => {
     operativ_xotira: "",
     description: "",
   };
+  const [categories, setCategories] = useState([]);
   const { value, changeValue } = UseInput(obj);
-  const [selectedFiles, setSelectedFiles] = useState("");
-
-  const handleFileChange = (event) => {
-    const files = event.target.files;
-    setSelectedFiles(files);
+  const [selectedFilesF, setSelectedFilesF] = useState("");
+  const [selectedFilesB, setSelectedFilesB] = useState(""); 
+  useEffect(() => {
+    const fn = async () => {
+      const res = await axios.get(URL + `api/category`);
+      setCategories(res.data.data);
+    };
+    fn();
+  }, []);
+  const handleFileChangeF = (event) => {
+    const fileFront = event.target.files[0];
+    setSelectedFilesF(fileFront);
+  };
+  const handleFileChangeB = (e) => {
+    const fileBack = e.target.files[0];
+    setSelectedFilesB(fileBack);
   };
   const submit = () => {
     const files = new FormData();
-    for (let i = 0; i < selectedFiles.length; i++) {
-      files.append("files", selectedFiles[i]);
-    }
+    files.append("fileFront", selectedFilesF);
+    files.append("fileBack", selectedFilesB);
     // for all input
     files.append("productName", value.productName);
     files.append("model", value.model);
@@ -100,7 +111,7 @@ const Form = () => {
         return error;
       });
     alert("mahsulot qo'shildi");
-    window.location.reload()
+    window.location.reload();
   };
   return (
     <div className="container">
@@ -111,11 +122,19 @@ const Form = () => {
       >
         <h3>You can add a new product here</h3>
         <div className="d-flex flex-wrap justify-content-between p-2">
-           <div className="w-25 btn d-flex flex-column">
+          <div className="w-25 btn d-flex flex-column">
             <label htmlFor="select">Please select Brand name</label>
-          <select name="model" id="select" onChange={changeValue}><option value="samsung">Samsung</option>
-          <option value="iphone">Iphone</option></select>
-           </div>
+            <select name="model" id="select" onChange={changeValue}>
+              {categories.map((item) => {
+                return (
+                  <option key={item.id} value={item.category_name}>
+                    {item.category_name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+
           <Input
             type="text"
             placeholder="Product name"
@@ -250,17 +269,26 @@ const Form = () => {
             name="description"
             onChange={changeValue}
           />
-
           <div className="d-flex flex-column">
             <label htmlFor="files" className="text-start ps-2">
-              Select Addition Images
+              Choose Front of the phone
             </label>
             <Input
               type="file"
-              multiple
-              onChange={handleFileChange}
-              name="files"
+              onChange={handleFileChangeF}
+              name="fileFront"
               id="files"
+            />
+          </div>
+          <div className="d-flex flex-column">
+            <label htmlFor="fileBack" className="text-start ps-2">
+              Choose Back of the phone
+            </label>
+            <Input
+              type="file"
+              onChange={handleFileChangeB}
+              name="fileBack"
+              id="fileBack"
             />
           </div>
         </div>

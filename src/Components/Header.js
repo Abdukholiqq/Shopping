@@ -29,7 +29,7 @@ const Header = ({ lang, setLang }) => {
           <input
             className="bg-white p-2 w-75 border border-primary rounded-4"
             onChange={(e) => {
-              setSearch({ search: e.target.value });
+              setSearch({ search: e.target.value }); 
             }} 
             type="search"
             name="search"

@@ -97,7 +97,7 @@ function AdminLogin() {
           >
             Sign in
           </button>
-          <a href="/users/register">Sugn Up</a>
+           
         </div>
       </form>
 

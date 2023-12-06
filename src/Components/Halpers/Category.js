@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable eqeqeq */
 import React, { useContext, useEffect, useState } from "react";
 import { languageContext } from "../../App";
@@ -11,12 +12,17 @@ const Category = ({ setCard }) => {
       .then((res) => res.json())
       .then((json) => setCategories(json.data));
   }, []); 
-  const categoryHandler = (category) => {
-   
+ 
+  const categoryHandler = (category) => { 
+    console.log(category, "category");
     fetch(category === "all" ? URL + "api/products" : URL + "api/category/name/" + category)
       .then((res) => res.json())
       .then((json) => category === "all" ? setCard(json.data) : setCard(json.data[0].ProductModels));
   };
+  //  useEffect(()=>{
+  //   categoryHandler()
+  // }, [])
+  // console.log(categories);
   const lang = useContext(languageContext);
   return (
     <div>

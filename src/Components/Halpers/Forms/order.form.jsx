@@ -41,6 +41,7 @@ const Order = () => {
     description: ""
   };
   const { value, changeValue } = UseInput(newData); 
+  console.log(value, 'value');
   const submit = (e) => {
     axios
       .post(`${URL}api/orders/${id.id}`, value,{

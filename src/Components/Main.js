@@ -4,21 +4,19 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable no-unused-vars */
 import React, { useMemo, useState, useEffect, useContext } from "react";
-import {  useNavigate} from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
 import { URL } from "../App";
 import Category from "./Halpers/Category";
 import EventsLoader from "./Halpers/Loaderr";
 import Pagination from "./Pagination";
-import cart from "../assets/images/cart.png"; 
- 
+import cart from "../assets/images/cart.png";
 
 const Main = () => {
-  const {search} = useContext(AuthContext) 
+  const { search } = useContext(AuthContext);
   const [card, setCard] = useState([]);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-
   const [currentPage, setCurrentPage] = useState(1);
   let PageSize = 8;
   // // pagination
@@ -27,23 +25,18 @@ const Main = () => {
     const lastPageIndex = firstPageIndex + PageSize;
     return card.slice(firstPageIndex, lastPageIndex);
   }, [currentPage, card]); 
-  //  pagination 
+ 
   useEffect(() => {
-    setLoading(true);
-    fetch(URL + "api/products")
+    setLoading(true); 
+    console.log(search.search.length, search.search); 
+    fetch( search.search.length === 0 ? URL + "api/products" : URL + `api/products/search/`+ search?.search)
       .then((res) => res.json())
-      .then((data) => {
-        setLoading(false);
-        setCard(data.data); 
-      });
-      // search data
-      fetch(URL+ `api/products/search?name=${search.search}`)
-      .then((res)=>res.json()).then((data)=>{
+      .then((data) => { 
         setLoading(false);
         setCard(data.data);
-      })
-      
+      });
   }, []);
+  
   if (loading) {
     return (
       <div className="d-flex container flex-wrap">
@@ -64,18 +57,17 @@ const Main = () => {
     onPageChange={(page) => setCurrentPage(page)}
   />;
   return (
-    <div className="container">
+    <div key={Math.random()} className="container">
       <Category setCard={setCard} />
       <div className="d-flex justify-content-around container flex-wrap gap-2 ">
-
-        {currentTableData.map((item) => { 
+        {currentTableData.map((item) => {
           return (
             <div
               key={item.id}
               style={{ width: 310 }}
               className="card p-2 mb-2 d-flex justify-content-between flex-column position-relative"
             >
-              <img 
+              <img
                 src={URL + item.MainImage}
                 alt="image"
                 height={360}
@@ -84,7 +76,7 @@ const Main = () => {
               />
               <div className="position-absolute top-0 end-0 p-2">
                 <img src={cart} alt="favourites" width={25} height={30} />
-              </div> 
+              </div>
               <h5 className="mt-2">{item.productName}</h5>
 
               <div className="stars d-flex justify-content-center mt-2 mb-2 gap-1 ">

@@ -44,7 +44,7 @@ const UpdateAdmin = () => {
     files.append("password", value.password);
     files.append("newPassword", value.newPassword);
     axios
-      .put(`${URL}api/admin/update`, files, {
+      .put(`${URL}api/admin`, files, {
         headers: {
           "content-type": "multipart/form-data",
           Authorization: `Bearer ${access_token}`,
