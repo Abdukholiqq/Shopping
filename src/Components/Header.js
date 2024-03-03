@@ -1,24 +1,24 @@
-/* eslint-disable no-unused-vars */ 
-import { Link, useNavigate } from "react-router-dom";  
+/* eslint-disable no-unused-vars */
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 
 const Header = ({ lang, setLang }) => {
   const navigate = useNavigate();
-  const access_token = localStorage.getItem("token"); 
-  const {search, setSearch} = useContext(AuthContext)
+  const access_token = localStorage.getItem("token");
+  const { search, setSearch } = useContext(AuthContext);
   const changeLanguage = (e) => {
     setLang(e.target.value);
   };
   return (
     <div>
       <div className="container d-flex justify-content-between  align-items-center pt-2">
-        <Link to={"/"}> 
+        <Link to={"/"}>
           <a
             href="/"
             className="text-success"
             style={{ fontSize: 32, fontWeight: 800 }}
-          > 
+          >
             Malina
           </a>
         </Link>
@@ -28,9 +28,10 @@ const Header = ({ lang, setLang }) => {
         >
           <input
             className="bg-white p-2 w-75 border border-primary rounded-4"
-            onChange={(e) => {
-              setSearch({ search: e.target.value }); 
-            }} 
+            onClick={(e) => {
+              setSearch({ search: e.target.value });
+              e.target.value = "";
+            }}
             type="search"
             name="search"
             id="search"
@@ -146,7 +147,6 @@ const Header = ({ lang, setLang }) => {
               </span>
             </div>
           </Link>
-          
         </div>
       </div>
       <hr />

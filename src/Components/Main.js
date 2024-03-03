@@ -24,19 +24,22 @@ const Main = () => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
     return card.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage, card]); 
- 
+  }, [currentPage, card]);
+
   useEffect(() => {
-    setLoading(true); 
-    console.log(search.search.length, search.search); 
-    fetch( search.search.length === 0 ? URL + "api/products" : URL + `api/products/search/`+ search?.search)
+    setLoading(true);
+    fetch(
+      search.search.length === 0
+        ? URL + "api/products"
+        : URL + `api/products/search/` + search?.search
+    )
       .then((res) => res.json())
-      .then((data) => { 
+      .then((data) => {
         setLoading(false);
         setCard(data.data);
       });
-  }, []);
-  
+  }, [search]);
+
   if (loading) {
     return (
       <div className="d-flex container flex-wrap">

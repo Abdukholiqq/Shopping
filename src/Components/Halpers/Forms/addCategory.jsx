@@ -47,17 +47,13 @@ const AddBrand = () => {
       })
       .then(function (response) {})
       .catch(function (error) {
-        console.log(error);
         return error;
       });
-      alert("Yangi brand qo'shildi");
+    alert("Yangi brand qo'shildi");
   };
   return (
     <div className="container text-start">
-      <form
-        required
-        className=" container w-75 p-2 mt-3"
-      >
+      <form required className=" container w-75 p-2 mt-3">
         <h3>Add new Brand</h3>
         <div>
           <Input
@@ -79,7 +75,7 @@ const AddBrand = () => {
           </div>
         </div>
       </form>
-      <div style={{marginLeft: 120}}>
+      <div style={{ marginLeft: 120 }}>
         <button
           onClick={(e) => submit()}
           type="submit"

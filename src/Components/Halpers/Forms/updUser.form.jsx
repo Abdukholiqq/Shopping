@@ -51,8 +51,7 @@ const UpdateUser = () => {
             }})
       .then(function (response) { 
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch(function (error) { 
         return error;
       });
       alert("Ma'lumot muvaffaqqiytli yangilandi");

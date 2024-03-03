@@ -106,8 +106,7 @@ const Form = () => {
       .then(function (response) {
         console.log(response);
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch(function (error) { 
         return error;
       });
     alert("mahsulot qo'shildi");

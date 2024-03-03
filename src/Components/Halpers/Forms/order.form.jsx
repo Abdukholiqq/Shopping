@@ -40,8 +40,7 @@ const Order = () => {
     moljal: "",
     description: ""
   };
-  const { value, changeValue } = UseInput(newData); 
-  console.log(value, 'value');
+  const { value, changeValue } = UseInput(newData);  
   const submit = (e) => {
     axios
       .post(`${URL}api/orders/${id.id}`, value,{
@@ -52,8 +51,7 @@ const Order = () => {
       .then(function (response) {
         console.log(response);
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch(function (error) { 
         return error;
       });
       alert("buyurtmangiz qa'bul qilindi");

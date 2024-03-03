@@ -13,16 +13,11 @@ const Category = ({ setCard }) => {
       .then((json) => setCategories(json.data));
   }, []); 
  
-  const categoryHandler = (category) => { 
-    console.log(category, "category");
+  const categoryHandler = (category) => {  
     fetch(category === "all" ? URL + "api/products" : URL + "api/category/name/" + category)
       .then((res) => res.json())
       .then((json) => category === "all" ? setCard(json.data) : setCard(json.data[0].ProductModels));
-  };
-  //  useEffect(()=>{
-  //   categoryHandler()
-  // }, [])
-  // console.log(categories);
+  }; 
   const lang = useContext(languageContext);
   return (
     <div>

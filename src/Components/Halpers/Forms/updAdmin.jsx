@@ -51,8 +51,7 @@ const UpdateAdmin = () => {
         },
       })
       .then(function (response) {})
-      .catch(function (error) {
-        console.log(error);
+      .catch(function (error) { 
         return error;
       });
       alert("ma'lumotingiz yangilandi");

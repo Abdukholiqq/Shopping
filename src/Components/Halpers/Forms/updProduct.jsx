@@ -23,17 +23,7 @@ const Input = styled.input`
 `;
 
 const UpdateProduct = () => {
-  const id = useParams();
-  //   const [datas, setData] = useState({});
-  // const [selectedFile, setSelectedFile] = useState("");
-  // const getdata = async () => {
-  //     const data = await axios.get(URL + `api/products/${id.id}`).then((res)=>{
-  //         console.log(res.data.data[0]);
-  //         setData(res.data.data[0])
-  //     });
-
-  //   };
-  // //   getdata()
+  const id = useParams(); 
   const [categories, setCategories] = useState([]);
   const [selectedFilesF, setSelectedFilesF] = useState("");
   const [selectedFilesB, setSelectedFilesB] = useState("");
@@ -116,8 +106,7 @@ const UpdateProduct = () => {
       .then(function (response) {
         console.log(response);
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch(function (error) { 
         return error;
       });
     alert("mahsulot ma'lumotlari yangilandi");

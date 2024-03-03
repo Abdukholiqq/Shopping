@@ -30,8 +30,7 @@ function AdminLogin() {
     username: "",
     password: "",
   };
-  const { value, changeValue } = UseInput(obj);
-  console.log(value, "value");
+  const { value, changeValue } = UseInput(obj); 
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(URL + "api/admin/login", {
@@ -42,8 +41,7 @@ function AdminLogin() {
       body: JSON.stringify(value),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data.access_token, "token");
+      .then((data) => { 
         if (data.access_token) {
           localStorage.setItem("token", data.access_token);
           navigate("/");

@@ -43,16 +43,13 @@ function Register() {
     formData.append("file", selectedFile[0]); 
     formData.append("username" ,value.username)
     formData.append( "lastname" ,value.lastname)
-    formData.append( "password" ,value.password)
-    console.log(value);
-    console.log(selectedFile[0]);
+    formData.append( "password" ,value.password) 
     axios
       .post( `${URL}api/users/register`, formData,{
         headers: {
           "content-type": "multipart/form-data",
         },
-      }).then((data) => { 
-        console.log(data, "data"); 
+      }).then((data) => {  
         if (data.data.access_token) { 
           localStorage.setItem("token", data.data.access_token); 
           navigate("/");

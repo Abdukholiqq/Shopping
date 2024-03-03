@@ -23,8 +23,7 @@ const Accaunt = () => {
   const getData = async () => {
     const res = await axios.get(`${URL}api/orders`, {
       headers: { Authorization: `Bearer ${access_token}` },
-    });
-    console.log(res.data.data); 
+    }); 
     setData(res.data.data); 
     setUser(res.data.data[0].UserModels[0])
   }; 
@@ -33,8 +32,7 @@ const Accaunt = () => {
   } 
   useEffect(() => {
     getData();
-  }, []); 
-  // console.log(datas[0].UserModels.avatar, "datas");
+  }, []);  
   return (
     <div>
     {access_token?(
